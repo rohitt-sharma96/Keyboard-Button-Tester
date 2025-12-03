@@ -1,15 +1,18 @@
-let h1 = document.querySelector('h1');
+let btn = document.querySelector('#btn')
+let inp = document.querySelector('input')
 
-let main = document.querySelector('main');
+btn.addEventListener('click', () => {
+    inp.click();
 
-document.addEventListener('keydown', (dets)=>{
-    // console.log(dets.key);
-    if(dets.key === " "){
-        // h1.textContent = "spc"
-    }else{
+})
 
-        h1.textContent = `${dets.key}`
+inp.addEventListener('change', (dets) => {
+    let file = dets.target.files[0];
+    console.log(file);
+    
+    if(file){
+
+        btn.textContent = file.name;
     }
-    
-    
+
 })

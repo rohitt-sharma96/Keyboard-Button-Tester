@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,12 +12,14 @@
             box-sizing: border-box;
             font-family: 'Gilroy';
         }
+
         html,
         body {
             height: 100%;
             width: 100%;
         }
-        #main{
+
+        #main {
             height: 100%;
             width: 100%;
             display: flex;
@@ -25,19 +28,36 @@
             background-color: #222;
         }
 
-        h1{
-            color: #555;
-            font-size: 10rem;
-            font-weight: 200;
+        input {
+            display: none;
+        }
+
+        #btn {
+            padding: 12px 20px;
+            background-color: royalblue;
+            border-radius: 5px;
+            color: #ffffff;
+            font-weight: 600;
             user-select: none;
+
+
+            &:hover {
+                background-color: rgb(40, 64, 137);
+            }
+            &:active{
+                scale: .95;
+            }
         }
     </style>
 </head>
+
 <body>
     <div id="main">
-        <h1></h1>
+        <input type="file">
+        <div id="btn">Upload Here</div>
     </div>
 
     <script src="event.js"></script>
 </body>
+
 </html>
