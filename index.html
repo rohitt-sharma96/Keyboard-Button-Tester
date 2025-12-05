@@ -22,39 +22,70 @@
         #main {
             height: 100%;
             width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 30px;
             background-color: #222;
+         
         }
 
-        input {
-            display: none;
+        input{
+            display: block;
+        }
+        
+        .card{
+            padding: 20px;
+            margin-top: 20px;
+            color: #fff;
+            border: 1px solid #555;
+            border-radius: 15px;
+            display: inline-block;
+            max-width: 300px;
+            margin-right: 5px;
+            
         }
 
-        #btn {
-            padding: 12px 20px;
-            background-color: royalblue;
-            border-radius: 5px;
-            color: #ffffff;
-            font-weight: 600;
-            user-select: none;
-
-
-            &:hover {
-                background-color: rgb(40, 64, 137);
-            }
-            &:active{
-                scale: .95;
-            }
+        .profile{
+            height: 50px;
+            width: 50px;
+            background-color: red;
+            border-radius: 50%;
+            margin-bottom: 8px;
+            overflow: hidden;
         }
+
+        .profile img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .card h5 {
+            margin-top: 3px;
+        }
+
+        .card p {
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+       
+        
     </style>
 </head>
 
 <body>
     <div id="main">
-        <input type="file">
-        <div id="btn">Upload Here</div>
+       
+        <form action="">
+            <input type="text" placeholder="profilepic">
+            <input type="text" placeholder="name">
+            <input type="text" placeholder="occupation">
+            <input type="text" placeholder="information">
+            <input type="submit">
+        </form>
+
+
+        
     </div>
 
     <script src="event.js"></script>
