@@ -1,94 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Gilroy';
-        }
-
-        html,
-        body {
-            height: 100%;
-            width: 100%;
-        }
-
-        #main {
-            height: 100%;
-            width: 100%;
-            padding: 30px;
-            background-color: #222;
-         
-        }
-
-        input{
-            display: block;
-        }
-        
-        .card{
-            padding: 20px;
-            margin-top: 20px;
-            color: #fff;
-            border: 1px solid #555;
-            border-radius: 15px;
-            display: inline-block;
-            max-width: 300px;
-            margin-right: 5px;
-            
-        }
-
-        .profile{
-            height: 50px;
-            width: 50px;
-            background-color: red;
-            border-radius: 50%;
-            margin-bottom: 8px;
-            overflow: hidden;
-        }
-
-        .profile img {
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-            object-position: top;
-        }
-
-        .card h5 {
-            margin-top: 3px;
-        }
-
-        .card p {
-            font-size: 12px;
-            margin-top: 10px;
-        }
-
-       
-        
-    </style>
+    <title>Email & Password Validator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div id="main">
-       
-        <form action="">
-            <input type="text" placeholder="profilepic">
-            <input type="text" placeholder="name">
-            <input type="text" placeholder="occupation">
-            <input type="text" placeholder="information">
-            <input type="submit">
+
+    <div class="container">
+        <h2>Email & Password Validator</h2>
+
+        <form id="validatorForm">
+            
+            <!-- Email -->
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input autocomplete="off" type="text" id="email" placeholder="Enter your email">
+                <p class="error" id="emailError"></p>
+            </div>
+
+            <!-- Password -->
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password">
+                <p class="error" id="passwordError"></p>
+            </div>
+
+            <button type="submit">Validate</button>
+
+            <p class="success" id="successMessage"></p>
         </form>
-
-
-        
     </div>
 
-    <script src="event.js"></script>
+<script src="event.js"></script>
 </body>
-
 </html>

@@ -1,47 +1,37 @@
-let form = document.querySelector('form');
-let inputs = document.querySelectorAll('input')
+let email = document.querySelector('#email')
+let password = document.querySelector('#password')
+let form = document.querySelector('form')
 
-let main = document.querySelector('#main')
 
 form.addEventListener('submit', (dets) => {
-    dets.preventDefault()
+      dets.preventDefault();
 
-    
-    
-    
-    let card = document.createElement('div')
-    card.classList.add('card');
-
-    let profile = document.createElement('div')
-    profile.classList.add('profile');
-
-    let img = document.createElement('img')
-    img.setAttribute('src', inputs[0].value)
-
-    profile.appendChild(img)
-
-    let h3 = document.createElement('h3')
-    h3.textContent = inputs[1].value;
-    
-    let h5 = document.createElement('h5')
-    h5.textContent = inputs[2].value;
-    
-    let p = document.createElement('p')
-    p.textContent = inputs[3].value;
-    
-
-    card.appendChild(profile);
-    card.appendChild(h3)
-    card.appendChild(h5)
-    card.appendChild(p)
-    console.log(card)
-
-    main.appendChild(card)
-
-    inputs.forEach((inp)=>{
-        if(inp.type !== 'submit')
-        inp.value = ""
-    })
+      document.querySelector('#emailError').textContent = '';
+      document.querySelector('#passwordError').textContent = '';
 
 
+
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+
+      let emailans = emailRegex.test(email.value)
+      let passwordans = passwordRegex.test(password.value)
+      console.log(password.value);
+
+      let isValid = true;
+
+      if (!emailans) {
+            document.querySelector('#emailError').textContent = 'Invalid email';
+            isValid = false;
+      }
+
+      if (!passwordans) {
+            document.querySelector('#passwordError').textContent = 'wrong password';
+            isValid = false;
+      }
+
+      if(isValid){
+            document.querySelector('#successMessage').textContent = 'Successful'
+      }
 })
