@@ -2,61 +2,81 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'helvetica neue';
 }
-
-:root {
-    --dark-bgcolor: black;
-    --dark-color: white;
-
-    --light-bgcolor: white;
-    --light-color: black;
-}
-
+html,
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    flex-direction: column;
+    height: 100%;
     width: 100%;
-    user-select: none;
-
 }
 
-.container {
-    /* background-color: #222; */
-
+body{
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: "Helvetica Neue", sans-serif;
+}
+.cards{
+    font-size: 3rem;
+    color: white;;
 }
 
-.light{
-    background-color: var(--light-bgcolor);
-    color: var(--light-color);
-}
 
-.light .btn {
-    color: royalblue;
-}
-
-.dark {
-    background-color: var(--dark-bgcolor);
-    color: var(--dark-color);
-}
-
-.dark .btn {
-    color: chartreuse
-}
-
-button {
-    padding: 10px 20px;
-    background-color: crimson;
+.card {
+    position:relative;
+    width: 200px;
+    height: 300px;
+    overflow: hidden;
     border-radius: 10px;
-    font-weight: 600;
-    border: none;
-    margin-top: 20px;
-    color: white;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    
+}
 
-    &:active {
-        scale: .95;
-    }
+.bg-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.blurred-layer{
+     position: absolute;
+     bottom: 0;
+     width: 100%;
+     height: 100%;
+     
+     background-size: cover;
+     background-position: bottom;
+     filter: blur(10px);
+     z-index: 1;
+     mask-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));
+     mask-size: 100% 100%;
+     mask-repeat: no-repeat;
+
+
+     -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));
+     -webkit-maks-size: 100% 100%;
+     -webkit-mask-repeat: no-repeat;
+}
+
+.content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    z-index: 2;
+}
+.content h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.content p{
+    font-size: 14px;
+    color: #ddd;
+    line-height: 1.4;
+
 }

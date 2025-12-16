@@ -1,112 +1,89 @@
-/* let h1 = document.querySelector('h1')
-
-h1.className = 'hulu'
-h1.className += ' golu'
-
-
-console.dir(h1)
- */
-
-//* Q.1 Select the heading of a page by ID and change its text to "Welcome to Sheryians"
-/* 
-let h1 = document.getElementById('h1')
-console.log(h1);
-
-h1.textContent= "Welcome to Sheryians"
-*/
-//* Q.1 Select all <li> elements and prints their text using a loop
-/* 
-let li = document.querySelectorAll('li')
-
-li.forEach((val)=>{
-    console.log(val.textContent)
-})
-     */
-
-//* Q.3 Select a paragraph and replace its content with: <b> Updated </b> by JavaScript
-/* 
-let para = document.querySelector('p')
-para.innerHTML = '<b> Updated </b>'
- */
-
-
-//* Q.4 How do you get src of an image using JavaScript?
-/* let img = document.querySelector('img')
-console.log(img.src);
-let src = img.getAttribute('src')
-console.log(src);
- */
-
-//* Q.5 Select a link and update its href to point to https://www.sheryians.com
-// let link = document.querySelector('a')
-// link.href = 'https://www.sheryians.com';
-// link.setAttribute('href','https://www.sheryians.com')
-
-
-//* Q.6 Add a title attribute to a div dynamically 
-// let div =  document.querySelector('div')
-// div.setAttribute('title', 'Demo')
-
-
-//* Q.7 Remove the disabled attribute from a button
-// let btn = document.querySelector('button')
-// btn.removeAttribute('disabled')
-
-//* Q.8 Create a new list item <li> New Task </li> and add it to the end of a <ul>.
-/* let ul = document.querySelector('ul')
-
-let li = document.createElement('li')
-
-li.textContent = 'New Task';
-ul.appendChild(li) */
-
-//* Q.9 Create a new image element with a placeholder source and add it at the top of a div
-// let div = document.querySelector('div');
-// let img = document.createElement('img');
-
-// img.setAttribute('src', 'https://images.unsplash.com/photo-1761839257664-ecba169506c1?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-
-// img.classList.add('placeholder')
-
-// document.body.prepend(img);
-
-//* Q.10 Select the first item in list and delete it from the DOM.
-
-// let ul = document.querySelector('ul')
-// let li = document.querySelector('li')
-
-// ul.removeChild(li)
-
-//* Q.11 Add a highlight class to every even item in a list.
-
-// document.querySelectorAll('ul li:nth-child(2n)') //For target even elem.
-/* 
-let lis = document.querySelectorAll('li')
-
-let btn = document.querySelector('button')
-
-lis.forEach((val, idx)=>{
-    console.log(val);
-    
-    if(idx % 2 == 1){
-        val.classList.add('highlight')
+const users = [
+    {
+        userName: 'aayush gupta',
+        pic: 'https://i.pinimg.com/736x/6b/b9/ed/6bb9eddacfd2e11eca1b986b274749a5.jpg',
+        bio: 'silent chaos in a loud world 🖤 | not for everyone'
+    },
+    {
+        userName: 'aman verma',
+        pic: 'https://i.pinimg.com/736x/54/ba/9b/54ba9be7870f15265b0cc0a7a1978ebf.jpg',
+        bio: 'living life one vibe at a time ✨'
+    },
+    {
+        userName: 'priya sharma',
+        pic: 'https://i.pinimg.com/1200x/72/2b/ca/722bca5614ee56d5ef0d6ff647017b59.jpg',
+        bio: 'soft heart, strong mind 🌸'
+    },
+    {
+        userName: 'karan singh',
+        pic: 'https://i.pinimg.com/1200x/ae/54/31/ae5431a21686d1eb7d38ac5e2a7b8799.jpg',
+        bio: 'dream big. stay real.'
+    },
+    {
+        userName: 'neha patel',
+        pic: 'https://i.pinimg.com/736x/41/b9/e4/41b9e4ad8bf71be1bca26845723f880c.jpg',
+        bio: 'creating my own sunshine ☀️'
     }
-})
+];
 
-btn.addEventListener('click', ()=>{
-    lis.forEach((val)=>{
-        val.classList.toggle('highlight')
+
+function showUsers(arr) {
+    arr.forEach((user) => {
+        //Creating card div here
+        let card = document.createElement('div');
+        card.classList.add('card');
+
+        //Creating image tag here and assigning image address
+        let img = document.createElement('img')
+        img.src = user.pic;
+        img.classList.add('bg-img')
+
+        //Crating blurred-layer div 
+        let blurredLayer = document.createElement('div')
+        blurredLayer.style.backgroundImage = `url(${user.pic})`
+        blurredLayer.classList.add('blurred-layer')
+
+
+        //Creating div name content that contain h3 and p tag
+        let content = document.createElement('div')
+        content.classList.add('content');
+
+        let h3 = document.createElement('h3')
+        h3.textContent = user.userName;
+
+        let p = document.createElement('p')
+        p.textContent = user.bio;
+
+        //Append heading and paragraph to Content
+        content.appendChild(h3);
+        content.appendChild(p);
+
+        //Append all to card
+        card.appendChild(img)
+        card.appendChild(blurredLayer)
+        card.appendChild(content)
+
+        //Finally, Append card to body or any container
+        let cards = document.querySelector('.cards')
+        cards.appendChild(card)
     })
-}) */
+}
 
+showUsers(users);
 
-//* Q. 12 Toggle a class active on a button when clicked (Hint: use classList.toggle())
+let inp = document.querySelector('.inp')
 
+inp.addEventListener('input', () => {
+    let newArr = users.filter((user) => {
+        document.querySelector('.cards').innerHTML = "";
+        return user.userName.startsWith(inp.value)
+    })
+    
+    console.log(newArr);
 
-//* Q.13 set the font size of all <p> elements to 18px using .style
-let paras = document.querySelectorAll('p')
+   if(newArr.length == 0){
+    document.querySelector('.cards').innerHTML = "User Not found!"
+   }
 
- paras.forEach((val)=>{
-    val.style.fontSize = '18px';
- })
-
+    showUsers(newArr);
+})
